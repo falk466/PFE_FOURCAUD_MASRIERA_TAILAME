@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF Research tool</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+      load_data();
+      function load_data(query, search_type, reco_type, nbre_pages) {
+        $.ajax({
+          url: "/pdfTool",
+          method: "POST",
+          data: {
+            query: query,
+            search_type: search_type,
+            reco_type:reco_type,
+            nbre_pages: nbre_pages
+          },
+          //contentType: "application/x-www-form-urlencoded",
+          success: function(data) {
+            $('#result').html(data);
+            $("#result").append(data.htmlresponse);
+          }
+        });
+      }
+      $('#search_text').keyup(function() {
+        var search = $(this).val();
+        var search_type = document.querySelector('input[name="search_type"]:checked').value;
+        var reco_type = document.querySelector('input[name="reco_type"]:checked').value;
+        var nbre_pages = document.querySelector('input[name="nbre_pages"]:checked').value;
+        if (search != '') {
+            load_data(search, search_type, reco_type, nbre_pages);
+          } else {
+            load_data();
+          }
+      });
+    });
+    </script>
+
+</head>
+
+
+
+<body>
+
+ 
+
+
+
+
+  <div class="container search-table">
+    <p><h2>PDF document recommendation tool</h2></p>
+
+    <input type="radio" name="reco_type" value="DL" id="option3" checked> 
+    <label for="option3">Collaborative Filtering</label>
+    <input type="radio" name="reco_type" value="BC" id="option4"> 
+    <label for="option4">Content Based</label>
+    <div class="search-box">
+      <div class="row">
+        <div class="col-md-3">
+          <h5 style="vertical-align: middle;">Searching Bar</h5>
+        </div>
+        <div class="col-md-9">
+          <form class="toggle">
+            <input type="radio" name="search_type" value="keywords" id="option1" checked> 
+            <label for="option1">Keywords</label>
+            <input type="radio" name="search_type" value="title" id="option2"> 
+            <label for="option2">Keywords and domain</label>
+          </form>
+          <input type="text" name="search_text" id="search_text" class="form-control" placeholder="Searching in all pdfs">
+        </div>         
+      </div>
+      <input type="radio" name="nbre_pages" value="1" id="option5"> 
+      <label for="option5">1 PDFS</label>
+      <input type="radio" name="nbre_pages" value="2" id="option6"> 
+      <label for="option6">2 PDFS</label>  
+      <input type="radio" name="nbre_pages" value="3" id="option7" checked> 
+      <label for="option7">3 PDFS</label>
+      <input type="radio" name="nbre_pages" value="4" id="option8"> 
+      <label for="option8">4 PDFS</label>  
+      <input type="radio" name="nbre_pages" value="5" id="option9"> 
+      <label for="option9">5 PDFS</label>
+      <input type="radio" name="nbre_pages" value="6" id="option10"> 
+      <label for="option10">6 PDFS</label>  
+    </div>
+    <div id="result"></div>
+  </div>
+
+
+<style>
+
+/* Style général */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.search-table {
+    background-color: #ffffff; /* change to the color you want */
+    border: 10px solid #0b0b0b;
+}
+
+
+/* Style des onglets pour la section reco_type */
+.container input[name="reco_type"] {
+  display: none;
+}
+
+.container input[name="reco_type"] + label {
+  background-color: #21212183;
+  color: #d5d5d5;
+  padding: 10px 15px;
+  border-radius: 5px 0 0 5px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  
+}
+
+.container input[name="reco_type"]:checked + label {
+  background-color: #fff;
+  color: #000;
+  border-bottom-color: transparent;
+}
+
+
+/* Style des boutons pour les autres sections */
+.container input[name="search_type"], 
+.container input[name="nbre_pages"] {
+  display: none;
+}
+
+.container input[name="search_type"] + label, 
+.container input[name="nbre_pages"] + label {
+  background-color: #21212183;
+  color: #d5d5d5;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container input[name="search_type"]:checked + label, 
+.container input[name="nbre_pages"]:checked + label {
+  background-color: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+.container input[name="nbre_pages"] + label {
+  margin-top: 10px;
+  margin-left: 6px;
+}
+
+
+</style>
+</body>
+</html>

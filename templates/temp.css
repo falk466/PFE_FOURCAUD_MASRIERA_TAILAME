@@ -1,0 +1,163 @@
+.container.search-table {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .container.search-table p {
+    margin: 0;
+  }
+  
+  .container.search-table h2 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  
+  .search-box {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  
+  .search-box .row {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-box .col-md-3 {
+    width: 25%;
+    text-align: left;
+    padding: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+  
+  .search-box .col-md-9 {
+    width: 75%;
+    padding: 20px;
+  }
+  
+  .search-box form.toggle {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-box form.toggle input[type="radio"] {
+    display: none;
+  }
+  
+  .search-box form.toggle label {
+    margin: 0 20px;
+    font-size: 0.8em;
+    cursor: pointer;
+  }
+  
+  .search-box form.toggle input[type="radio"]:checked + label {
+    font-weight: bold;
+  }
+  
+  #search_text {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 0.8em;
+  }
+  
+  #result {
+    width: 100%;
+    min-height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: auto;
+    padding: 20px;
+    font-size: 0.8em;
+  }
+
+/* .container.search-table : sélecteur de classe qui s'applique à un élément HTML avec les 
+classes "container" et "search-table".
+
+.container.search-table p : sélecteur de classe qui s'applique à tous les éléments "p" 
+qui se trouvent dans un élément avec les classes "container" et "search-table".
+
+.container.search-table h2 : sélecteur de classe qui s'applique à tous les éléments "h2" 
+qui se trouvent dans un élément avec les classes "container" et "search-table".
+
+.search-box : sélecteur de classe qui s'applique à tous les éléments avec la classe "search-box".
+
+.search-box .row : sélecteur de classe qui s'applique à tous les éléments avec la classe "row"
+qui se trouvent dans un élément avec la classe "search-box".
+
+.search-box .col-md-3 : sélecteur de classe qui s'applique à tous les éléments avec la 
+classe "col-md-3" qui se trouvent dans un élément avec la classe "search-box".
+
+.search-box .col-md-9 : sélecteur de classe qui s'applique à tous les éléments avec la 
+classe "col-md-9" qui se trouvent dans un élément avec la classe "search-box".
+
+.search-box form.toggle : sélecteur de classe qui s'applique à tous les éléments "form" 
+avec la classe "toggle" qui se trouvent dans un élément avec la classe "search-box".
+
+input[type="radio"] : sélecteur d'attribut qui s'applique à tous les éléments "input" de 
+type "radio".
+
+label : sélecteur de type qui s'applique à tous les éléments "label".
+
+input[type="radio"]:checked + label : sélecteur d'attribut qui s'applique à tous les éléments 
+"label" qui suivent immédiatement un élément "input" de type "radio" qui est coché.
+
+#search_text : sélecteur d'ID qui s'applique à l'élément HTML avec l'ID "search_text".
+
+#result : sélecteur d'ID qui s'applique à l'élément HTML avec l'ID "result". */
+
+
+
+/*lautre css nul là*/
+
+
+.search-table{
+  text-align: center;
+  padding: 10%;
+  margin-top: -6%;
+}
+.search-box{
+  background: #076e9087;
+  border: 1px solid #ababab;
+  padding: 3%;
+}
+.search-box input:focus{
+  box-shadow:none;
+  border:2px solid #eeeeee;
+}
+.search-list{
+  background: #fff;
+  border: 1px solid #ababab;
+  border-top: none;
+}
+.search-list h3{
+  background: #eee;
+  padding: 3%;color:#fe6f41;
+  margin-bottom: 0%;
+}
+
+.toggle {
+display: block;
+position: relative;
+padding-left: 35px;
+padding: 3%;color:#076e9087;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 22px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+.toggle input[type="radio"], .toggle label {
+display: inline-block;
+margin-right: 10px;
+}

@@ -1,0 +1,18 @@
+<h3>Records Found</h3>
+<table class="table table-striped custab">
+  <thead>
+      <tr>
+         <th>Title</th>
+         <th>Matching Score</th>
+         <th>Domain</th>
+         
+      </tr>
+  </thead>
+  <tbody>
+{% for lig in employee %}  
+   <tr>
+    <td>{{lig[0]}}</td>
+    <td>{{lig[1]}}</td>
+    <td>{{lig[2]}}</td>
+   </tr>
+{% endfor %} 
